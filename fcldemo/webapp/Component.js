@@ -2,9 +2,10 @@ sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
         "fcldemo/fcldemo/model/models",
-        "sap/ui/model/json/JSONModel"
+        "sap/ui/model/json/JSONModel",
+        "sap/f/library"
     ],
-    function (UIComponent, Device, models, JSONModel) {
+    function (UIComponent, Device, models, JSONModel, fioriLibrary) {
         "use strict";
 
         return UIComponent.extend("fcldemo.fcldemo.Component", {
@@ -18,20 +19,33 @@ sap.ui.define([
              * @override
              */
             init: function () {
-                var oProductsModel;
-                // call the base component's init function
+                var oModel,
+                    oProductsModel,
+                    oRouter;
+
                 UIComponent.prototype.init.apply(this, arguments);
+
+                oModel = new JSONModel();
+                this.setModel(oModel);
 
                 // set products demo model on this sample
                 oProductsModel = new JSONModel(sap.ui.require.toUrl('sap/ui/demo/mock') + '/products.json');
                 oProductsModel.setSizeLimit(1000);
                 this.setModel(oProductsModel, 'products');
 
-                // enable routing
-                this.getRouter().initialize();
+                oRouter = this.getRouter();
+                oRouter.attachBeforeRouteMatched(this._onBeforeRouteMatched, this);
+                oRouter.initialize();
+            },
 
-                // set the device model
-                this.setModel(models.createDeviceModel(), "device");
+            _onBeforeRouteMatched: function(oEvent) {
+                var oModel = this.getModel(),
+                    sLayout = oEvent.getParameters().arguments.layout;
+    
+                // If there is no layout parameter, set a default layout (normally OneColumn)
+                if (!sLayout) {
+                    sLayout = fioriLibrary.LayoutType.OneColumn;
+                }          
             }
         });
     }
