@@ -8,7 +8,7 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="Employees"/>
+					<Title text="{i18n>employeeListTitle}"/>
 				</f:heading>
 			</f:DynamicPageTitle>
 		</f:title>
@@ -23,7 +23,7 @@
 					<OverflowToolbarButton icon="sap-icon://sort" text="Sort" type="Transparent" press=".onSort"/>
 				</OverflowToolbar>
 				<Table
-					id="productsTable"
+					id="employeesTable"
 					inset="false"
 					items="{
 						path: 'employee>/Employees',

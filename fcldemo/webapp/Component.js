@@ -19,8 +19,7 @@ sap.ui.define([
              * @override
              */
             init: function () {
-                var oModel,
-                    oRouter;
+                var oRouter;
 
                 UIComponent.prototype.init.apply(this, arguments);
 

@@ -13,7 +13,7 @@ sap.ui.define([
 		onInit: function () {
 			this.oView = this.getView();
 			this._bDescendingSort = false;
-			this.oProductsTable = this.oView.byId("productsTable");
+			this.oEmployeesTable = this.oView.byId("employeesTable");
 			this.oRouter = this.getOwnerComponent().getRouter();
 		},
 
@@ -22,10 +22,10 @@ sap.ui.define([
 				sQuery = oEvent.getParameter("query");
 
 			if (sQuery && sQuery.length > 0) {
-				oTableSearchState = [new Filter("Name", FilterOperator.Contains, sQuery)];
+				oTableSearchState = [new Filter("FullName", FilterOperator.Contains, sQuery)];
 			}
 
-			this.oProductsTable.getBinding("items").filter(oTableSearchState, "Application");
+			this.oEmployeesTable.getBinding("items").filter(oTableSearchState, "Application");
 		},
 
 		onAdd: function () {
@@ -34,17 +34,17 @@ sap.ui.define([
 
 		onSort: function () {
 			this._bDescendingSort = !this._bDescendingSort;
-			var oBinding = this.oProductsTable.getBinding("items"),
-				oSorter = new Sorter("Name", this._bDescendingSort);
+			var oBinding = this.oEmployeesTable.getBinding("items"),
+				oSorter = new Sorter("FullName", this._bDescendingSort);
 
 			oBinding.sort(oSorter);
 		},
 
         onListItemPress: function (oEvent) {
-			var productPath = oEvent.getSource().getBindingContext("products").getPath(),
-				product = productPath.split("/").slice(-1).pop();
+			var employeePath = oEvent.getSource().getBindingContext("employee").getPath(),
+				employee = employeePath.split("/").slice(-1).pop();
 
-			this.oRouter.navTo("detail", {layout: fioriLibrary.LayoutType.TwoColumnsMidExpanded, product: product});
+			this.oRouter.navTo("detail", {layout: fioriLibrary.LayoutType.TwoColumnsMidExpanded, employee: employee});
 		}
 	});
 });
