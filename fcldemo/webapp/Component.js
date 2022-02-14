@@ -1,9 +1,10 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "fcldemo/fcldemo/model/models"
+        "fcldemo/fcldemo/model/models",
+        "sap/ui/model/json/JSONModel"
     ],
-    function (UIComponent, Device, models) {
+    function (UIComponent, Device, models, JSONModel) {
         "use strict";
 
         return UIComponent.extend("fcldemo.fcldemo.Component", {
@@ -17,8 +18,14 @@ sap.ui.define([
              * @override
              */
             init: function () {
+                var oProductsModel;
                 // call the base component's init function
                 UIComponent.prototype.init.apply(this, arguments);
+
+                // set products demo model on this sample
+                oProductsModel = new JSONModel(sap.ui.require.toUrl('sap/ui/demo/mock') + '/products.json');
+                oProductsModel.setSizeLimit(1000);
+                this.setModel(oProductsModel, 'products');
 
                 // enable routing
                 this.getRouter().initialize();
