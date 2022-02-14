@@ -37,14 +37,23 @@
 						<Column width="12em">
 							<Text text="Name"/>
 						</Column>
-						<!-- <Column	hAlign="End">
-							<Text text="Price"/>
-						</Column> -->
+						<Column width="12em">
+							<Text text="Title/Role"/>
+						</Column>
+						<Column width="12em">
+							<Text text="Industries"/>
+						</Column>
 					</columns>
 					<items>
 						<ColumnListItem type="Navigation" press=".onListItemPress">
 							<cells>
 								<ObjectIdentifier title="{employee>FullName}" text="{employee>Department}"/>
+							</cells>
+							<cells>
+								<ObjectIdentifier title="{employee>Title}" text="{employee>Role}"/>
+							</cells>
+							<cells>
+								<ObjectIdentifier text="{employee>Industries}"/>
 							</cells>
 						</ColumnListItem>
 					</items>
