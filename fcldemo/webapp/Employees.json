@@ -1,0 +1,37 @@
+{
+    "Employees": [
+    {
+        "Id": "0",
+        "FullName": "John Smith",
+        "Department": "Finance",
+        "Title": "Director of Finance",
+        "Role": "Director",
+        "Industries": "Finance",
+        "DirectReport": "VP of Finance",
+        "Start Date": "Jan 1, 2014",
+        "Email": "johnsmith@mindsetconsulting.com"
+    },
+    {
+        "Id": "1",
+        "FullName": "Jane Doe",
+        "Department": "DevOps",
+        "Title": "Junior Developer",
+        "Role": "Developer",
+        "Industries": "Manufacturing",
+        "DirectReport": "Director of DevOps",
+        "Start Date": "Jan 1, 2020",
+        "Email": "janedoe@mindsetconsulting.com"
+    },
+    {
+        "Id": "2",
+        "FullName": "Mark Anderson",
+        "Department": "Human Resources",
+        "Title": "Director of HR",
+        "Role": "Director",
+        "Industries": "Human Resources",
+        "DirectReport": "VP of Operations",
+        "Start Date": "Jan 1, 2016",
+        "Email": "markanderson@mindsetconsulting.com"
+    }
+  ]
+}

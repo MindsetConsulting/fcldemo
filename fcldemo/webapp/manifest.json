@@ -69,6 +69,10 @@
           "earlyRequests": true,
           "groupId": "$direct"
         }
+      },
+      "employee": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "Employees.json"
       }
     },
     "resources": {
@@ -100,7 +104,7 @@
 					]
 				},
 				{
-					"pattern": "detail/{product}/{layout}",
+					"pattern": "detail/{employee}/{layout}",
 					"name": "detail",
 					"target": [
 						"master",
