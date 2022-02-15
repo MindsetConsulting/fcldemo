@@ -43,7 +43,7 @@ sap.ui.define([
         onListItemPress: function (oEvent) {
 			var employeePath = oEvent.getSource().getBindingContext("employee").getPath(),
 				employee = employeePath.split("/").slice(-1).pop();
-
+			console.log("clicked");
 			this.oRouter.navTo("detail", {layout: fioriLibrary.LayoutType.TwoColumnsMidExpanded, employee: employee});
 		}
 	});

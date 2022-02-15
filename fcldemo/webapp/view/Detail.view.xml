@@ -83,14 +83,14 @@
 						<blocks>
 							<m:Table
 								id="suppliersTable"
-								items="{path : 'products>/ProductCollectionStats/Filters/1/values'}">
+								items="{path : 'employee>/Employees'}">
 								<m:columns>
 									<m:Column/>
 								</m:columns>
 								<m:items>
 									<m:ColumnListItem type="Navigation">
 										<m:cells>
-											<m:ObjectIdentifier text="{products>text}"/>
+											<m:ObjectIdentifier text="{employee>FullName}"/>
 										</m:cells>
 									</m:ColumnListItem>
 								</m:items>

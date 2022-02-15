@@ -10,15 +10,15 @@ sap.ui.define([
 			this.oRouter = oOwnerComponent.getRouter();
 			this.oModel = oOwnerComponent.getModel();
 
-			this.oRouter.getRoute("master").attachPatternMatched(this._onProductMatched, this);
-			this.oRouter.getRoute("detail").attachPatternMatched(this._onProductMatched, this);
+			this.oRouter.getRoute("master").attachPatternMatched(this._onEmployeeMatched, this);
+			this.oRouter.getRoute("detail").attachPatternMatched(this._onEmployeeMatched, this);
 		},
 
-		_onProductMatched: function (oEvent) {
-			this._product = oEvent.getParameter("arguments").product || this._product || "0";
+		_onEmployeeMatched: function (oEvent) {
+			this._employee = oEvent.getParameter("arguments").employee || this._employee || "0";
 			this.getView().bindElement({
-				path: "/ProductCollection/" + this._product,
-				model: "products"
+				path: "/Employees/" + this._employee,
+				model: "employee"
 			});
 		},
 
@@ -30,8 +30,8 @@ sap.ui.define([
 		},
 		
 		onExit: function () {
-			this.oRouter.getRoute("master").detachPatternMatched(this._onProductMatched, this);
-			this.oRouter.getRoute("detail").detachPatternMatched(this._onProductMatched, this);
+			this.oRouter.getRoute("master").detachPatternMatched(this._onEmployeeMatched, this);
+			this.oRouter.getRoute("detail").detachPatternMatched(this._onEmployeeMatched, this);
 		}
 	});
 });

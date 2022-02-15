@@ -19,9 +19,13 @@ sap.ui.define([
              * @override
              */
             init: function () {
-                var oRouter;
+                var oModel,
+                    oRouter;
 
                 UIComponent.prototype.init.apply(this, arguments);
+
+                oModel = new JSONModel();
+                this.setModel(oModel);
 
                 oRouter = this.getRouter();
                 oRouter.attachBeforeRouteMatched(this._onBeforeRouteMatched, this);
@@ -35,7 +39,9 @@ sap.ui.define([
                 // If there is no layout parameter, set a default layout (normally OneColumn)
                 if (!sLayout) {
                     sLayout = fioriLibrary.LayoutType.OneColumn;
-                }          
+                }
+                
+                oModel.setProperty("/layout", sLayout);
             }
         });
     }
