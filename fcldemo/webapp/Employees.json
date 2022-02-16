@@ -1,7 +1,7 @@
 {
     "Employees": [
     {
-        "Id": "0",
+        "Id": 0,
         "FullName": "John Smith",
         "Department": "Finance",
         "Title": "Director of Finance",
@@ -9,10 +9,30 @@
         "Industries": "Finance",
         "DirectReport": "VP of Finance",
         "Start Date": "Jan 1, 2014",
-        "Email": "johnsmith@mindsetconsulting.com"
+        "Email": "johnsmith@mindsetconsulting.com",
+        "Assigned Skills": [
+            {
+                "Id": 0,
+                "SkillTitle": "BS Finance",
+                "SkillType": "University Degree",
+                "Institution": "University of Money",
+                "DateAcquired": "1/1/01",
+                "Renewal": "n/a",
+                "ComfortLevel": "Advanced"
+            },
+            {
+                "Id": 1,
+                "SkillTitle": "Finance Certificate",
+                "SkillType": "Certification",
+                "Institution": "Finance Management Co.",
+                "DateAcquired": "2/2/02",
+                "Renewal": "Current",
+                "ComfortLevel": "Intermediate"
+            }
+        ]
     },
     {
-        "Id": "1",
+        "Id": 1,
         "FullName": "Jane Doe",
         "Department": "DevOps",
         "Title": "Junior Developer",
@@ -20,10 +40,30 @@
         "Industries": "Manufacturing",
         "DirectReport": "Director of DevOps",
         "Start Date": "Jan 1, 2020",
-        "Email": "janedoe@mindsetconsulting.com"
+        "Email": "janedoe@mindsetconsulting.com",
+        "Assigned Skills": [
+            {
+                "Id": 2,
+                "SkillTitle": "AWS Certification",
+                "SkillType": "Certification",
+                "Institution": "Amazon",
+                "DateAcquired": "11/11/11",
+                "Renewal": "Current",
+                "ComfortLevel": "Advanced"
+            },
+            {
+                "Id": 3,
+                "SkillTitle": "Fiori 1 Certification",
+                "SkillType": "Certification",
+                "Institution": "SAP",
+                "DateAcquired": "12/12/12",
+                "Renewal": "Expired",
+                "ComfortLevel": "Beginner"
+            }
+        ]
     },
     {
-        "Id": "2",
+        "Id": 2,
         "FullName": "Mark Anderson",
         "Department": "Human Resources",
         "Title": "Director of Human Resources",
@@ -31,7 +71,66 @@
         "Industries": "Human Resources",
         "DirectReport": "VP of Operations",
         "Start Date": "Jan 1, 2016",
-        "Email": "markanderson@mindsetconsulting.com"
+        "Email": "markanderson@mindsetconsulting.com",
+        "Assigned Skills": [
+            {
+                "Id": 4,
+                "SkillTitle": "Diversity and Equity Training",
+                "SkillType": "Certification",
+                "Institution": "DET Experts",
+                "DateAcquired": "3/3/13",
+                "Renewal": "Current",
+                "ComfortLevel": "Advanced"
+            },
+            {
+                "Id": 5,
+                "SkillTitle": "Introduction to Meditation",
+                "SkillType": "Course",
+                "Institution": "LinkedIn",
+                "DateAcquired": "4/4/14",
+                "Renewal": "n/a",
+                "ComfortLevel": "Beginner"
+            }
+        ]
     }
+  ],
+
+  "Skills": [
+      {
+        "Id": 0,
+        "SkillTitle": "BS Finance",
+        "SkillType": "University Degree",
+        "Institution": "University of Money"
+      },
+      {
+        "Id": 1,
+        "SkillTitle": "Finance Certificate",
+        "SkillType": "Certification",
+        "Institution": "Finance Management Co."
+      },
+      {
+        "Id": 2,
+        "SkillTitle": "AWS Certification",
+        "SkillType": "Certification",
+        "Institution": "Amazon"  
+      },
+      {
+        "Id": 3,
+        "SkillTitle": "Fiori 1 Certification",
+        "SkillType": "Certification",
+        "Institution": "SAP"
+      },
+      {
+        "Id": 4,
+        "SkillTitle": "Diversity and Equity Training",
+        "SkillType": "Certification",
+        "Institution": "DET Experts"
+      },
+      {
+        "Id": 5,
+        "SkillTitle": "Introduction to Meditation",
+        "SkillType": "Course",
+        "Institution": "LinkedIn"
+      }
   ]
 }

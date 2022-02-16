@@ -39,14 +39,16 @@
 					displayShape="Square"
 					class="sapUiTinyMarginEnd">
 				</f:Avatar>
-				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Main Category"/>
+				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd" width="7em">
+					<m:Label text="{employee>FullName}" design="Bold"/>
 				</m:VBox>
 				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Subcategory"/>
+					<m:Label text="Department:"/>
+					<m:Text text="{employee>Department}"/>
 				</m:VBox>
 				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Price"/>
+					<m:Label text="Title:"/>
+					<m:Text text="{employee>Title}"/>
 				</m:VBox>
 			</m:FlexBox>
 		</headerContent>
