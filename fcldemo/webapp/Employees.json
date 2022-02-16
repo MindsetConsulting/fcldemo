@@ -29,6 +29,20 @@
                 "Renewal": "Current",
                 "ComfortLevel": "Intermediate"
             }
+        ],
+        "Awards": [
+          {
+            "Id": 0,
+            "AwardName": "Academy Award",
+            "ReceivedFrom": "The Academy of Motion Picture Arts and Sciences",
+            "DateGiven": "1/1/01" 
+          },
+          {
+            "Id": 1,
+            "AwardName": "Grammy Award",
+            "ReceivedFrom": "The National Academy of Recording Arts and Sciences",
+            "DateGiven": "2/2/02" 
+          }
         ]
     },
     {
@@ -60,6 +74,20 @@
                 "Renewal": "Expired",
                 "ComfortLevel": "Beginner"
             }
+        ],
+        "Awards": [
+          {
+            "Id": 2,
+            "AwardName": "Tony Award",
+            "ReceivedFrom": "Broadway",
+            "DateGiven": "1/1/01" 
+          },
+          {
+            "Id": 3,
+            "AwardName": "Emmy",
+            "ReceivedFrom": "The Academy of Television Arts and Sciences",
+            "DateGiven": "2/2/02" 
+          }
         ]
     },
     {
@@ -91,6 +119,14 @@
                 "Renewal": "n/a",
                 "ComfortLevel": "Beginner"
             }
+        ],
+        "Awards": [
+          {
+            "Id": 4,
+            "AwardName": "Participation Award",
+            "ReceivedFrom": "Anderson Elementary School",
+            "DateGiven": "1/1/01" 
+          }
         ]
     }
   ],

@@ -121,6 +121,47 @@
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>
+
+			<ObjectPageSection title="Awards">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<m:Table
+								id="awardsTable"
+								items="{path : 'employee>Awards'}">
+								<m:columns>
+									<m:Column/>
+									<m:Column/>
+									<m:Column/>
+								</m:columns>
+								<m:items>
+									<m:ColumnListItem>
+										<m:cells>
+											<m:ObjectIdentifier text="{employee>AwardName}"/>
+											<m:ObjectIdentifier text="{employee>ReceivedFrom}"/>
+											<m:ObjectIdentifier text="{employee>DateGiven}"/>
+										</m:cells>
+									</m:ColumnListItem>
+								</m:items>
+							</m:Table>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection title="Blog Posts">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<m:Link 
+								text="Here are some blog posts I've written"
+								target="_blank"
+								href="http://blogs.sap.com/"
+							/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
 		</sections>
 
         <footer>

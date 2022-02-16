@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/core/mvc/Controller"
-], function (JSONModel, Controller) {
+	"sap/ui/core/mvc/Controller",
+    "sap/m/MessageBox",
+], function (JSONModel, Controller, MessageBox) {
 	"use strict";
 
 	return Controller.extend("fcldemo.fcldemo.controller.DetailSkill", {
@@ -22,6 +23,10 @@ sap.ui.define([
 				path: "/Employees/" + this._employee + "/AssignedSkills/" + this._skill,
 				model: "employee"
 			});
+		},
+
+        onStillToDo: function () {
+			MessageBox.information("This functionality is not ready yet.", {title: "Aw, Snap!"});
 		},
 
 		onExit: function () {

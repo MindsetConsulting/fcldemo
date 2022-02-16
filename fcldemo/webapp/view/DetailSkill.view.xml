@@ -15,10 +15,12 @@
                 <actions>
 					<m:ToggleButton
 						icon="sap-icon://edit"
-						type="Transparent"/>
+						type="Transparent"
+                        press="onStillToDo"/>
 					<m:Button
 						icon="sap-icon://delete"
-						type="Transparent"/>
+						type="Transparent"
+                        press="onStillToDo"/>
 				</actions>
 			</DynamicPageTitle>
 		</title>
