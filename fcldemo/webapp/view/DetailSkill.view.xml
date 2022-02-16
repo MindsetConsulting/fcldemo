@@ -2,16 +2,56 @@
 	controllerName="fcldemo.fcldemo.controller.DetailSkill"
 	xmlns="sap.f"
 	xmlns:m="sap.m"
+    xmlns:form="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc">
 	<DynamicPage toggleHeaderOnTitleClick="false">
 		<title>
 			<DynamicPageTitle>
 				<heading>
 					<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
-						<m:Title text="test" wrapping="true" class="sapUiTinyMarginEnd"/>
+						<m:Title text="{employee>SkillTitle}" wrapping="true" class="sapUiTinyMarginEnd"/>
 					</m:FlexBox>
 				</heading>
+                <actions>
+					<m:ToggleButton
+						icon="sap-icon://edit"
+						type="Transparent"/>
+					<m:Button
+						icon="sap-icon://delete"
+						type="Transparent"/>
+				</actions>
 			</DynamicPageTitle>
 		</title>
+        <header>
+            <DynamicPageHeader>
+                <content>
+                    <form:SimpleForm
+								maxContainerCols="2"
+								editable="false"
+								layout="ResponsiveGridLayout"
+								labelSpanL="12"
+								labelSpanM="12"
+								emptySpanL="0"
+								emptySpanM="0"
+								columnsL="1"
+								columnsM="1">
+								<form:content>
+									<m:Label text="Skill Title"/>
+									<m:Text text="{employee>SkillTitle}"/>
+									<m:Label text="SkillType"/>
+									<m:Text text="{employee>SkillType}"/>
+									<m:Label text="Institution"/>
+									<m:Text text="{employee>Institution}"/>
+									<m:Label text="Date Acquired"/>
+									<m:Text text="{employee>DateAcquired}"/>
+									<m:Label text="Renewal Status"/>
+									<m:Text text="{employee>Renewal}"/>
+									<m:Label text="Comfort Level"/>
+									<m:Text text="{employee>ComfortLevel}"/>
+								</form:content>
+							</form:SimpleForm>
+                </content>
+            </DynamicPageHeader>
+        </header>
 	</DynamicPage>
 </mvc:View>

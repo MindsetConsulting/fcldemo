@@ -18,6 +18,7 @@ sap.ui.define([
 			// Save the current route name
 			this.currentRouteName = sRouteName;
 			this.currentEmployee = oArguments.employee;
+			this.currentSkill = oArguments.skill;
 		},
 
 		onStateChanged: function (oEvent) {

@@ -19,7 +19,7 @@ sap.ui.define([
 			this._employee = oEvent.getParameter("arguments").employee || this._employee || "0";
 
 			this.getView().bindElement({
-				path: "/Employees/AssignedSkills" + this._skill,
+				path: "/Employees/" + this._employee + "/AssignedSkills/" + this._skill,
 				model: "employee"
 			});
 		},
