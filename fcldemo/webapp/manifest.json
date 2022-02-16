@@ -110,6 +110,15 @@
 						"master",
 						"detail"
 					]
+				},
+				{
+					"pattern": "detail/{employee}/detailSkill/{skill}/{layout}",
+					"name": "detailSkill",
+					"target": [
+						"master",
+						"detail",
+						"detailSkill"
+					]
 				}
 			],
 			"targets": {
@@ -120,6 +129,10 @@
 				"detail": {
 					"name": "Detail",
 					"controlAggregation": "midColumnPages"
+				},
+				"detailSkill": {
+					"name": "DetailSkill",
+					"controlAggregation": "endColumnPages"
 				}
 			}
 		},

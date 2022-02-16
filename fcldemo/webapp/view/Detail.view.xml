@@ -25,13 +25,16 @@
                         press=".onEditToggleButtonPress"/>
 					<m:Button
 						icon="sap-icon://add-activity"
-						type="Transparent"/>
+						type="Transparent"
+						press="onStillToDo"/>
 					<m:Button
 						icon="sap-icon://delete"
-						type="Transparent"/>
+						type="Transparent"
+						press="onStillToDo"/>
 					<m:Button
 						icon="sap-icon://action"
-						type="Transparent"/>
+						type="Transparent"
+						press="onStillToDo"/>
 				</actions>
 			</ObjectPageDynamicHeaderTitle>
 		</headerTitle>
@@ -73,9 +76,22 @@
 								columnsL="1"
 								columnsM="1">
 								<form:content>
-									<m:Label text="Product ID"/>
-									<m:Label text="Description"/>
-									<m:Label text="Supplier"/>
+									<m:Label text="Name"/>
+									<m:Text text="{employee>FullName}"/>
+									<m:Label text="Department"/>
+									<m:Text text="{employee>Department}"/>
+									<m:Label text="Title"/>
+									<m:Text text="{employee>Title}"/>
+									<m:Label text="Role"/>
+									<m:Text text="{employee>Role}"/>
+									<m:Label text="Industries"/>
+									<m:Text text="{employee>Industries}"/>
+									<m:Label text="Direct Report"/>
+									<m:Text text="{employee>DirectReport}"/>
+									<m:Label text="Start Date"/>
+									<m:Text text="{employee>StartDate}"/>
+									<m:Label text="Email"/>
+									<m:Text text="{employee>Email}"/>
 								</form:content>
 							</form:SimpleForm>
 						</blocks>
@@ -88,15 +104,15 @@
 					<ObjectPageSubSection>
 						<blocks>
 							<m:Table
-								id="suppliersTable"
-								items="{path : 'employee>/Employees/0/AssignedSkills'}">
+								id="skillsTable"
+								items="{path : 'employee>AssignedSkills'}">
 								<m:columns>
 									<m:Column/>
 								</m:columns>
 								<m:items>
-									<m:ColumnListItem type="Navigation">
+									<m:ColumnListItem type="Navigation" press=".onSkillPress">
 										<m:cells>
-											<m:ObjectIdentifier text="{employee>/Employees/0/AssignedSkills/0/SkillTitle}"/>
+											<m:ObjectIdentifier text="{employee>SkillTitle}"/>
 										</m:cells>
 									</m:ColumnListItem>
 								</m:items>
