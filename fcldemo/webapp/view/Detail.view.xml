@@ -15,16 +15,19 @@
 		upperCaseAnchorBar="false">
         <headerTitle>
 			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+					<m:Title text="{employee>FullName}" wrapping="true" class="sapUiSmallMarginEnd"/>
+				</expandedHeading>
 				<actions>
 					<m:ToggleButton
-						text="Edit"
-						type="Emphasized"
+						icon="sap-icon://edit"
+						type="Transparent"
                         press=".onEditToggleButtonPress"/>
 					<m:Button
-						text="Delete"
+						icon="sap-icon://add-activity"
 						type="Transparent"/>
 					<m:Button
-						text="Copy"
+						icon="sap-icon://delete"
 						type="Transparent"/>
 					<m:Button
 						icon="sap-icon://action"
@@ -39,9 +42,6 @@
 					displayShape="Square"
 					class="sapUiTinyMarginEnd">
 				</f:Avatar>
-				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd" width="7em">
-					<m:Label text="{employee>FullName}" design="Bold"/>
-				</m:VBox>
 				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
 					<m:Label text="Department:"/>
 					<m:Text text="{employee>Department}"/>
@@ -49,6 +49,10 @@
 				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
 					<m:Label text="Title:"/>
 					<m:Text text="{employee>Title}"/>
+				</m:VBox>
+				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+					<m:Label text="Role:"/>
+					<m:Text text="{employee>Role}"/>
 				</m:VBox>
 			</m:FlexBox>
 		</headerContent>
@@ -79,20 +83,20 @@
 				</subSections>
 			</ObjectPageSection>
 
-			<ObjectPageSection title="Suppliers">
+			<ObjectPageSection title="Skills">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
 							<m:Table
 								id="suppliersTable"
-								items="{path : 'employee>/Employees'}">
+								items="{path : 'employee>/Employees/0/AssignedSkills'}">
 								<m:columns>
 									<m:Column/>
 								</m:columns>
 								<m:items>
 									<m:ColumnListItem type="Navigation">
 										<m:cells>
-											<m:ObjectIdentifier text="{employee>FullName}"/>
+											<m:ObjectIdentifier text="{employee>/Employees/0/AssignedSkills/0/SkillTitle}"/>
 										</m:cells>
 									</m:ColumnListItem>
 								</m:items>
