@@ -30,7 +30,7 @@
 					<m:Button
 						icon="sap-icon://delete"
 						type="Transparent"
-						press="onStillToDo"/>
+						press="onDeleteEmployee"/>
 					<m:Button
 						icon="sap-icon://download"
 						type="Transparent"

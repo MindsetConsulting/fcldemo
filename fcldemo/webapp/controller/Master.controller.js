@@ -92,6 +92,7 @@ sap.ui.define([
 				})],
 				beginButton: new sap.m.Button({
 					text: "Save",
+					type: "Emphasized",
 					press: function() {
 						// Read the new Employee values
 						var NewEmployeeID = sap.ui.getCore().byId("Id").getValue();
@@ -136,7 +137,6 @@ sap.ui.define([
 				}
 			});
 			dialog.open();
-
 		},
 
 		onSort: function () {
