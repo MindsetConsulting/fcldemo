@@ -32,7 +32,7 @@
 						type="Transparent"
 						press="onStillToDo"/>
 					<m:Button
-						icon="sap-icon://action"
+						icon="sap-icon://download"
 						type="Transparent"
 						press="onStillToDo"/>
 				</actions>
@@ -66,6 +66,7 @@
 					<ObjectPageSubSection>
 						<blocks>
 							<form:SimpleForm
+								id="editEmployeeText"
 								maxContainerCols="2"
 								editable="false"
 								layout="ResponsiveGridLayout"
@@ -74,7 +75,8 @@
 								emptySpanL="0"
 								emptySpanM="0"
 								columnsL="1"
-								columnsM="1">
+								columnsM="1"
+								visible="true">
 								<form:content>
 									<m:Label text="Name"/>
 									<m:Text text="{employee>FullName}"/>
@@ -92,6 +94,37 @@
 									<m:Text text="{employee>StartDate}"/>
 									<m:Label text="Email"/>
 									<m:Text text="{employee>Email}"/>
+								</form:content>
+							</form:SimpleForm>
+							<form:SimpleForm
+								id="editEmployeeForm"
+								maxContainerCols="2"
+								editable="false"
+								layout="ResponsiveGridLayout"
+								labelSpanL="12"
+								labelSpanM="12"
+								emptySpanL="0"
+								emptySpanM="0"
+								columnsL="1"
+								columnsM="1"
+								visible="false">
+								<form:content>
+									<m:Label text="Name"/>
+									<m:Input value="{employee>FullName}"/>
+									<m:Label text="Department"/>
+									<m:Input value="{employee>Department}"/>
+									<m:Label text="Title"/>
+									<m:Input value="{employee>Title}"/>
+									<m:Label text="Role"/>
+									<m:Input value="{employee>Role}"/>
+									<m:Label text="Industries"/>
+									<m:Input value="{employee>Industries}"/>
+									<m:Label text="Direct Report"/>
+									<m:Input value="{employee>DirectReport}"/>
+									<m:Label text="Start Date"/>
+									<m:Input value="{employee>StartDate}"/>
+									<m:Label text="Email"/>
+									<m:Input value="{employee>Email}"/>
 								</form:content>
 							</form:SimpleForm>
 						</blocks>
