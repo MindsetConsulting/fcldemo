@@ -29,6 +29,41 @@ sap.ui.define([
 			MessageBox.information("This functionality is not ready yet.", {title: "Aw, Snap!"});
 		},
 
+		onRemoveSkill: function () {
+			var oModel = this.getView().getModel("employee");
+			var dialog = new sap.m.Dialog({
+				title: "Remove Skill",
+				type: "Message",
+				content: [new sap.ui.layout.HorizontalLayout({
+					content: [new sap.ui.layout.VerticalLayout({
+						width: "300px",
+						content: [
+							new sap.m.Label({
+								text: "Are you sure you want to remove this skill?"
+							})
+						]
+					})]
+				})],
+				beginButton: new sap.m.Button({
+					text: "Remove",
+					type: "Critical",
+					press: function() {
+						dialog.close();
+					}
+				}),
+				endButton: new sap.m.Button({
+					text: "Cancel",
+					press: function() {
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+			dialog.open();
+		},
+
 		onExit: function () {
 			this.oRouter.getRoute("detailSkill").detachPatternMatched(this._onPatternMatch, this);
 		}

@@ -33,14 +33,9 @@ sap.ui.define([
 		},
 
 		onAdd: function () {
-			// Get the Model in the view
 			var oModel = this.getView().getModel("employee");
-			// Get the Number of records in the OData Employees
 			var EmployeesNumber = oModel.getProperty("/Employees").length;
-			// Populate the new Employee ID
-			var NewEmployeeID = EmployeesNumber + 1;
-			// Display a popup to Insert the new Employee First Name and Employee Last Name
-			// call Dialog popup
+			var NewEmployeeID = EmployeesNumber;
 			var dialog = new sap.m.Dialog({
 				title: "Add Employee",
 				type: "Message",
@@ -94,7 +89,6 @@ sap.ui.define([
 					text: "Save",
 					type: "Emphasized",
 					press: function() {
-						// Read the new Employee values
 						var NewEmployeeID = sap.ui.getCore().byId("Id").getValue();
 						var NewEmployeeFullName = sap.ui.getCore().byId("FullName").getValue();
 						var NewEmployeeDepartment = sap.ui.getCore().byId("Department").getValue();
@@ -104,10 +98,9 @@ sap.ui.define([
 						var NewEmployeeDirectReport = sap.ui.getCore().byId("DirectReport").getValue();
 						var NewEmployeeStartDate = sap.ui.getCore().byId("StartDate").getValue();
 						var NewEmployeeEmail = sap.ui.getCore().byId("Email").getValue();
-						// Create Object
 						var oEmployee = {};
 						oEmployee = {
-							"dD": NewEmployeeID,
+							"Id": NewEmployeeID,
 							"FullName": NewEmployeeFullName,
 							"Department": NewEmployeeDepartment,
 							"Title": NewEmployeeTitle,
@@ -117,12 +110,9 @@ sap.ui.define([
 							"StartDate": NewEmployeeStartDate,
 							"Email": NewEmployeeEmail
 						};
-						//Get the OData 
 						var oEmployees = oModel.getProperty("/Employees");
-						// Add the new record to the Odata
 						oEmployees.push(oEmployee);
 						oModel.setProperty("/Employees", oEmployees);
-						// Close the popup
 						dialog.close();
 					}
 				}),
@@ -150,7 +140,6 @@ sap.ui.define([
         onListItemPress: function (oEvent) {
 			var employeePath = oEvent.getSource().getBindingContext("employee").getPath(),
 				employee = employeePath.split("/").slice(-1).pop();
-			console.log("clicked");
 			this.oRouter.navTo("detail", {layout: fioriLibrary.LayoutType.TwoColumnsMidExpanded, employee: employee});
 		}
 	});

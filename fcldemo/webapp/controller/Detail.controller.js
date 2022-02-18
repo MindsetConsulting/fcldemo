@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
-	"sap/f/library"
-], function (Controller, MessageBox, fioriLibrary) {
+	"sap/f/library",
+	"sap/ui/core/Fragment"
+], function (Controller, MessageBox, fioriLibrary, Fragment) {
 	"use strict";
 
 	return Controller.extend("fcldemo.fcldemo.controller.Detail", {
@@ -43,39 +44,37 @@ sap.ui.define([
 			oObjectPage.setShowFooter(!bCurrentShowFooterState);
 		},
 
-		onDeleteEmployee: function () {
-			var oModel = this.getView().getModel("employee");
-			var dialog = new sap.m.Dialog({
-				title: "Delete Employee",
-				type: "Message",
-				content: [new sap.ui.layout.HorizontalLayout({
-					content: [new sap.ui.layout.VerticalLayout({
-						width: "300px",
-						content: [
-							new sap.m.Label({
-								text: "Are you sure you want to delete this employee?"
-							})
-						]
-					})]
-				})],
-				beginButton: new sap.m.Button({
-					text: "Delete",
-					type: "Critical",
-					press: function() {
-						dialog.close();
-					}
-				}),
-				endButton: new sap.m.Button({
-					text: "Cancel",
-					press: function() {
-						dialog.close();
-					}
-				}),
-				afterClose: function() {
-					dialog.destroy();
-				}
+		onOpenDeleteDialog: function () {
+			if (!this.pDialog) {
+				this.pDialog = this.loadFragment({
+					name: "fcldemo.fcldemo.view.DeleteDialog"
+				});
+			} 
+			this.pDialog.then(function(oDialog) {
+				oDialog.open();
 			});
-			dialog.open();
+		},
+
+		onDelete: function (oEvent) {
+			var oModel = this.getView().getModel("employee");
+
+			var employeePath = oEvent.getSource().getBindingContext("employee").getPath();
+			this._employee = employeePath.charAt(employeePath.length - 1);
+
+			var oEmployeeIdSelected = this._employee; 
+			var oEmployees = oModel.getProperty("/Employees"); 
+
+			// // Delete the record from the oEmployees Object 
+			oEmployees.splice(oEmployeeIdSelected, 1); 
+			// // Update the Model 
+			oModel.setProperty("/Employees", oEmployees);
+
+			this.byId("deleteDialog").close();
+			this.oRouter.navTo("master", {layout: fioriLibrary.LayoutType.OneColumn});
+		},
+
+		onCloseDeleteDialog : function () {
+			this.byId("deleteDialog").close();
 		},
 		
 		onExit: function () {

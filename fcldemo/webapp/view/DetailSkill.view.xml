@@ -20,7 +20,7 @@
 					<m:Button
 						icon="sap-icon://delete"
 						type="Transparent"
-                        press="onStillToDo"/>
+                        press="onRemoveSkill"/>
 				</actions>
 			</DynamicPageTitle>
 		</title>
@@ -56,4 +56,7 @@
             </DynamicPageHeader>
         </header>
 	</DynamicPage>
+	<mvc:dependents>
+	
+	</mvc:dependents>
 </mvc:View>

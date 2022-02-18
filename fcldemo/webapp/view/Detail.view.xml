@@ -30,7 +30,7 @@
 					<m:Button
 						icon="sap-icon://delete"
 						type="Transparent"
-						press="onDeleteEmployee"/>
+						press="onOpenDeleteDialog"/>
 					<m:Button
 						icon="sap-icon://download"
 						type="Transparent"
@@ -205,4 +205,13 @@
 			</m:OverflowToolbar>
 		</footer>
 	</ObjectPageLayout>
+	<!-- <mvc:dependents>
+		<Dialog id="deleteEmployee">
+			<HorizontalLayout>
+				<VerticalLayout>
+					<Label text="Are you sure you want to delete this employee?"/>
+				</VerticalLayout>
+			</HorizontalLayout>
+		</Dialog>
+	</mvc:dependents> -->
 </mvc:View>
