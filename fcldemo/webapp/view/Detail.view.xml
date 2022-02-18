@@ -19,10 +19,10 @@
 					<m:Title text="{employee>FullName}" wrapping="true" class="sapUiSmallMarginEnd"/>
 				</expandedHeading>
 				<actions>
-					<m:ToggleButton
+					<m:Button
 						icon="sap-icon://edit"
 						type="Transparent"
-                        press=".onEditToggleButtonPress"/>
+                        press="onOpenEditEmployeeDialog"/>
 					<m:Button
 						icon="sap-icon://add-activity"
 						type="Transparent"
@@ -75,8 +75,7 @@
 								emptySpanL="0"
 								emptySpanM="0"
 								columnsL="1"
-								columnsM="1"
-								visible="true">
+								columnsM="1">
 								<form:content>
 									<m:Label text="Name"/>
 									<m:Text text="{employee>FullName}"/>
@@ -94,37 +93,6 @@
 									<m:Text text="{employee>StartDate}"/>
 									<m:Label text="Email"/>
 									<m:Text text="{employee>Email}"/>
-								</form:content>
-							</form:SimpleForm>
-							<form:SimpleForm
-								id="editEmployeeForm"
-								maxContainerCols="2"
-								editable="false"
-								layout="ResponsiveGridLayout"
-								labelSpanL="12"
-								labelSpanM="12"
-								emptySpanL="0"
-								emptySpanM="0"
-								columnsL="1"
-								columnsM="1"
-								visible="false">
-								<form:content>
-									<m:Label text="Name"/>
-									<m:Input value="{employee>FullName}"/>
-									<m:Label text="Department"/>
-									<m:Input value="{employee>Department}"/>
-									<m:Label text="Title"/>
-									<m:Input value="{employee>Title}"/>
-									<m:Label text="Role"/>
-									<m:Input value="{employee>Role}"/>
-									<m:Label text="Industries"/>
-									<m:Input value="{employee>Industries}"/>
-									<m:Label text="Direct Report"/>
-									<m:Input value="{employee>DirectReport}"/>
-									<m:Label text="Start Date"/>
-									<m:Input value="{employee>StartDate}"/>
-									<m:Label text="Email"/>
-									<m:Input value="{employee>Email}"/>
 								</form:content>
 							</form:SimpleForm>
 						</blocks>
@@ -201,7 +169,7 @@
 			<m:OverflowToolbar>
 				<m:ToolbarSpacer/>
 				<m:Button type="Accept" text="Save"/>
-				<m:Button type="Reject" text="Cancel"/>
+				<m:Button type="Reject" text="Cancel" press="onEditButtonPress"/>
 			</m:OverflowToolbar>
 		</footer>
 	</ObjectPageLayout>

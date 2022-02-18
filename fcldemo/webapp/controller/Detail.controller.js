@@ -37,20 +37,35 @@ sap.ui.define([
 			MessageBox.information("This functionality is not ready yet.", {title: "Aw, Snap!"});
 		},
 
-		onEditToggleButtonPress: function() {
+		onEditButtonPress: function() {
 			var oObjectPage = this.getView().byId("ObjectPageLayout"),
 				bCurrentShowFooterState = oObjectPage.getShowFooter();
 
 			oObjectPage.setShowFooter(!bCurrentShowFooterState);
 		},
 
+		onOpenEditEmployeeDialog: function () {
+			if (!this.editDialog) {
+				this.editDialog = this.loadFragment({
+					name: "fcldemo.fcldemo.view.EditEmployeeDialog"
+				});
+			} 
+			this.editDialog.then(function(oDialog) {
+				oDialog.open();
+			});
+		},
+
+		onCloseEditDialog : function () {
+			this.byId("editEmployeeDialog").close();
+		},
+
 		onOpenDeleteDialog: function () {
-			if (!this.pDialog) {
-				this.pDialog = this.loadFragment({
+			if (!this.deleteDialog) {
+				this.deleteDialog = this.loadFragment({
 					name: "fcldemo.fcldemo.view.DeleteDialog"
 				});
 			} 
-			this.pDialog.then(function(oDialog) {
+			this.deleteDialog.then(function(oDialog) {
 				oDialog.open();
 			});
 		},
