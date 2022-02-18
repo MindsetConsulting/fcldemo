@@ -20,7 +20,7 @@
 					<m:Button
 						icon="sap-icon://delete"
 						type="Transparent"
-                        press="onRemoveSkill"/>
+                        press="onOpenDeleteDialog"/>
 				</actions>
 			</DynamicPageTitle>
 		</title>
@@ -56,7 +56,4 @@
             </DynamicPageHeader>
         </header>
 	</DynamicPage>
-	<mvc:dependents>
-	
-	</mvc:dependents>
 </mvc:View>

@@ -2,7 +2,9 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
-], function (JSONModel, Controller, MessageBox) {
+	"sap/f/library",
+	"sap/ui/core/Fragment"
+], function (JSONModel, Controller, MessageBox, fioriLibrary, Fragment) {
 	"use strict";
 
 	return Controller.extend("fcldemo.fcldemo.controller.DetailSkill", {
@@ -29,39 +31,39 @@ sap.ui.define([
 			MessageBox.information("This functionality is not ready yet.", {title: "Aw, Snap!"});
 		},
 
-		onRemoveSkill: function () {
-			var oModel = this.getView().getModel("employee");
-			var dialog = new sap.m.Dialog({
-				title: "Remove Skill",
-				type: "Message",
-				content: [new sap.ui.layout.HorizontalLayout({
-					content: [new sap.ui.layout.VerticalLayout({
-						width: "300px",
-						content: [
-							new sap.m.Label({
-								text: "Are you sure you want to remove this skill?"
-							})
-						]
-					})]
-				})],
-				beginButton: new sap.m.Button({
-					text: "Remove",
-					type: "Critical",
-					press: function() {
-						dialog.close();
-					}
-				}),
-				endButton: new sap.m.Button({
-					text: "Cancel",
-					press: function() {
-						dialog.close();
-					}
-				}),
-				afterClose: function() {
-					dialog.destroy();
-				}
+		onOpenDeleteDialog: function () {
+			if (!this.pDialog) {
+				this.pDialog = this.loadFragment({
+					name: "fcldemo.fcldemo.view.DeleteDialog"
+				});
+			} 
+			this.pDialog.then(function(oDialog) {
+				oDialog.open();
 			});
-			dialog.open();
+		},
+
+		onCloseDeleteDialog : function () {
+			this.byId("deleteDialog").close();
+		},
+
+		onDelete: function (oEvent) {
+			var oModel = this.getView().getModel("employee");
+
+			var employeePath = oEvent.getSource().getBindingContext("employee").getPath();
+			this._employee = employeePath.charAt(11);
+
+			var assignedSkillPath = oEvent.getSource().getBindingContext("employee").getPath();
+			this._assignedSkill = assignedSkillPath.charAt(assignedSkillPath.length - 1);
+
+			var oAssignedSkillIdSelected = this._assignedSkill; 
+			var oAssignedSkill = oModel.getProperty("/Employees/" + this._employee + "/AssignedSkills"); 
+
+			// // Delete the record from the oEmployees Object 
+			oAssignedSkill.splice(oAssignedSkillIdSelected, 1); 
+			// // Update the Model 
+			oModel.setProperty("/Employees/" + this._employee + "/AssignedSkills", oAssignedSkill);
+
+			this.byId("deleteDialog").close();
 		},
 
 		onExit: function () {

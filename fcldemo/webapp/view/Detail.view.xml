@@ -205,13 +205,4 @@
 			</m:OverflowToolbar>
 		</footer>
 	</ObjectPageLayout>
-	<!-- <mvc:dependents>
-		<Dialog id="deleteEmployee">
-			<HorizontalLayout>
-				<VerticalLayout>
-					<Label text="Are you sure you want to delete this employee?"/>
-				</VerticalLayout>
-			</HorizontalLayout>
-		</Dialog>
-	</mvc:dependents> -->
 </mvc:View>
