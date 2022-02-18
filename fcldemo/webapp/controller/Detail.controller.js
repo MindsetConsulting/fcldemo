@@ -37,13 +37,6 @@ sap.ui.define([
 			MessageBox.information("This functionality is not ready yet.", {title: "Aw, Snap!"});
 		},
 
-		onEditButtonPress: function() {
-			var oObjectPage = this.getView().byId("ObjectPageLayout"),
-				bCurrentShowFooterState = oObjectPage.getShowFooter();
-
-			oObjectPage.setShowFooter(!bCurrentShowFooterState);
-		},
-
 		onOpenEditEmployeeDialog: function () {
 			if (!this.editDialog) {
 				this.editDialog = this.loadFragment({
@@ -55,7 +48,7 @@ sap.ui.define([
 			});
 		},
 
-		onCloseEditDialog : function () {
+		onSaveEditEmployee: function () {
 			this.byId("editEmployeeDialog").close();
 		},
 

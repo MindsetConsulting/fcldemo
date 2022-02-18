@@ -16,7 +16,7 @@
 					<m:ToggleButton
 						icon="sap-icon://edit"
 						type="Transparent"
-                        press="onStillToDo"/>
+                        press="onOpenEditSkillDialog"/>
 					<m:Button
 						icon="sap-icon://delete"
 						type="Transparent"
@@ -28,30 +28,30 @@
             <DynamicPageHeader>
                 <content>
                     <form:SimpleForm
-								maxContainerCols="2"
-								editable="false"
-								layout="ResponsiveGridLayout"
-								labelSpanL="12"
-								labelSpanM="12"
-								emptySpanL="0"
-								emptySpanM="0"
-								columnsL="1"
-								columnsM="1">
-								<form:content>
-									<m:Label text="Skill Title"/>
-									<m:Text text="{employee>SkillTitle}"/>
-									<m:Label text="SkillType"/>
-									<m:Text text="{employee>SkillType}"/>
-									<m:Label text="Institution"/>
-									<m:Text text="{employee>Institution}"/>
-									<m:Label text="Date Acquired"/>
-									<m:Text text="{employee>DateAcquired}"/>
-									<m:Label text="Renewal Status"/>
-									<m:Text text="{employee>Renewal}"/>
-									<m:Label text="Comfort Level"/>
-									<m:Text text="{employee>ComfortLevel}"/>
-								</form:content>
-							</form:SimpleForm>
+						maxContainerCols="2"
+						editable="false"
+						layout="ResponsiveGridLayout"
+						labelSpanL="12"
+						labelSpanM="12"
+						emptySpanL="0"
+						emptySpanM="0"
+						columnsL="1"
+						columnsM="1">
+						<form:content>
+							<m:Label text="Skill Title"/>
+							<m:Text text="{employee>SkillTitle}"/>
+							<m:Label text="SkillType"/>
+							<m:Text text="{employee>SkillType}"/>
+							<m:Label text="Institution"/>
+							<m:Text text="{employee>Institution}"/>
+							<m:Label text="Date Acquired"/>
+							<m:Text text="{employee>DateAcquired}"/>
+							<m:Label text="Renewal Status"/>
+							<m:Text text="{employee>Renewal}"/>
+							<m:Label text="Comfort Level"/>
+							<m:Text text="{employee>ComfortLevel}"/>
+						</form:content>
+					</form:SimpleForm>
                 </content>
             </DynamicPageHeader>
         </header>

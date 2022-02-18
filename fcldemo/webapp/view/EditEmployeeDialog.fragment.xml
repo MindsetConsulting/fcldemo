@@ -41,14 +41,9 @@
       </layout:HorizontalLayout>
       <beginButton>
          <Button
-            text="Save Changes"
+            text="Ok"
             type="Emphasized"
             press="onSaveEditEmployee"/>
       </beginButton>
-      <endButton>
-      <Button
-        text="Cancel"
-        press=".onCloseEditDialog"/>
-      </endButton>
    </Dialog>
 </core:FragmentDefinition>

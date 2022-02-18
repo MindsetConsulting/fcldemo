@@ -31,6 +31,21 @@ sap.ui.define([
 			MessageBox.information("This functionality is not ready yet.", {title: "Aw, Snap!"});
 		},
 
+		onOpenEditSkillDialog: function () {
+			if (!this.editDialog) {
+				this.editDialog = this.loadFragment({
+					name: "fcldemo.fcldemo.view.EditSkillDialog"
+				});
+			} 
+			this.editDialog.then(function(oDialog) {
+				oDialog.open();
+			});
+		},
+
+		onSaveEditSkill: function () {
+			this.byId("editSkillDialog").close();
+		},
+
 		onOpenDeleteDialog: function () {
 			if (!this.pDialog) {
 				this.pDialog = this.loadFragment({

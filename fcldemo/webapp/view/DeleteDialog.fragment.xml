@@ -6,8 +6,8 @@
       id="deleteDialog"
       title="Delete Entry">
       <layout:HorizontalLayout>
-        <layout:VerticalLayout>
-            <Label text="Are you sure you want to delete this entry?"/>
+        <layout:VerticalLayout class="sapUiContentPadding">
+            <Text text="Are you sure you want to delete this entry?"/>
         </layout:VerticalLayout>
       </layout:HorizontalLayout>
       <beginButton>
