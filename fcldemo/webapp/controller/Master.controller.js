@@ -32,11 +32,35 @@ sap.ui.define([
 			this.oEmployeesTable.getBinding("items").filter(oTableSearchState, "Application");
 		},
 
+		onSort: function () {
+			this._bDescendingSort = !this._bDescendingSort;
+			var oBinding = this.oEmployeesTable.getBinding("items"),
+				oSorter = new Sorter("FullName", this._bDescendingSort);
+
+			oBinding.sort(oSorter);
+		},
+
 		onOpenAddEmployeeDialog: function() {
 			if (!this.addEmployeeDialog) {
 				this.addEmployeeDialog = this.getView().byId("addEmployeeDialog");
 			} 
 			this.addEmployeeDialog.open();
+		},
+
+		handleDateChange: function (oEvent) {
+			var oText = this.byId("textResult"),
+				oDP = oEvent.getSource(),
+				sValue = oEvent.getParameter("value"),
+				bValid = oEvent.getParameter("valid");
+
+			this._iEvent++;
+			oText.setText("Change - Event " + this._iEvent + ": DatePicker " + oDP.getId() + ":" + sValue);
+
+			if (bValid) {
+				oDP.setValueState(ValueState.None);
+			} else {
+				oDP.setValueState(ValueState.Error);
+			}
 		},
 
 		onAddNewEmployee: function () {
@@ -76,14 +100,6 @@ sap.ui.define([
 
 		onCancelAddEmployeeDialog: function () {
 			this.byId("addEmployeeDialog").close();
-		},
-
-		onSort: function () {
-			this._bDescendingSort = !this._bDescendingSort;
-			var oBinding = this.oEmployeesTable.getBinding("items"),
-				oSorter = new Sorter("FullName", this._bDescendingSort);
-
-			oBinding.sort(oSorter);
 		},
 
         onListItemPress: function (oEvent) {

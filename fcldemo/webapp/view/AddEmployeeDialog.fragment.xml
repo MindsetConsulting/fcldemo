@@ -32,7 +32,10 @@
                     <Label text="Direct Report"/>
                     <Input id="DirectReport"/>
                     <Label text="Start Date"/>
-                    <Input id="StartDate"/>
+                    <DatePicker
+                      id="StartDate"
+                      change="handleDateChange"
+                      class="sapUiSmallMarginBottom"/>
                     <Label text="Email"/>
                     <Input id="Email"/>
                 </form:content>
