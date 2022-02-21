@@ -1,0 +1,50 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:layout="sap.ui.layout"
+   xmlns:form="sap.ui.layout.form"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      id="assignSkillDialog"
+      title="Assign Skill">
+      <layout:HorizontalLayout>
+        <layout:VerticalLayout>
+            <form:SimpleForm
+                maxContainerCols="2"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                labelSpanL="12"
+                labelSpanM="12"
+                emptySpanL="0"
+                emptySpanM="0"
+                columnsL="1"
+                columnsM="1">
+                <form:content>
+                    <Label text="Skill Title"/>
+                    <Input id="SkillTitle"/>
+                    <Label text="SkillType"/>
+                    <Input id="SkillType"/>
+                    <Label text="Institution"/>
+                    <Input id="Institution"/>
+                    <Label text="Date Acquired"/>
+                    <Input id="DateAcquired"/>
+                    <Label text="Renewal Status"/>
+                    <Input id="Renewal"/>
+                    <Label text="Comfort Level"/>
+                    <Input id="ComfortLevel"/>
+                </form:content>
+            </form:SimpleForm>
+        </layout:VerticalLayout>
+      </layout:HorizontalLayout>
+      <beginButton>
+        <Button
+            text="Ok"
+            type="Emphasized"
+            press="onAssignSkill"/>
+      </beginButton>
+      <endButton>
+        <Button
+            text="Cancel"
+            press="onCancelAssignSkillDialog"/>
+      </endButton>
+   </Dialog>
+</core:FragmentDefinition>

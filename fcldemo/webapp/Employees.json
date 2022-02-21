@@ -11,24 +11,24 @@
         "StartDate": "Jan 1, 2014",
         "Email": "johnsmith@mindsetconsulting.com",
         "AssignedSkills": [
-            {
-                "Id": 0,
-                "SkillTitle": "BS Finance",
-                "SkillType": "University Degree",
-                "Institution": "University of Money",
-                "DateAcquired": "1/1/01",
-                "Renewal": "n/a",
-                "ComfortLevel": "Advanced"
-            },
-            {
-                "Id": 1,
-                "SkillTitle": "Finance Certificate",
-                "SkillType": "Certification",
-                "Institution": "Finance Management Co.",
-                "DateAcquired": "2/2/02",
-                "Renewal": "Current",
-                "ComfortLevel": "Intermediate"
-            }
+          {
+              "SkillId": 0,
+              "SkillTitle": "BS Finance",
+              "SkillType": "University Degree",
+              "Institution": "University of Money",
+              "DateAcquired": "1/1/01",
+              "Renewal": "n/a",
+              "ComfortLevel": "Advanced"
+          },
+          {
+              "SkillId": 1,
+              "SkillTitle": "Finance Certificate",
+              "SkillType": "Certification",
+              "Institution": "Finance Management Co.",
+              "DateAcquired": "2/2/02",
+              "Renewal": "Current",
+              "ComfortLevel": "Intermediate"
+          }
         ],
         "Awards": [
           {
@@ -56,24 +56,24 @@
         "StartDate": "Jan 1, 2020",
         "Email": "janedoe@mindsetconsulting.com",
         "AssignedSkills": [
-            {
-                "Id": 2,
-                "SkillTitle": "AWS Certification",
-                "SkillType": "Certification",
-                "Institution": "Amazon",
-                "DateAcquired": "11/11/11",
-                "Renewal": "Current",
-                "ComfortLevel": "Advanced"
-            },
-            {
-                "Id": 3,
-                "SkillTitle": "Fiori 1 Certification",
-                "SkillType": "Certification",
-                "Institution": "SAP",
-                "DateAcquired": "12/12/12",
-                "Renewal": "Expired",
-                "ComfortLevel": "Beginner"
-            }
+          {
+              "SkillId": 2,
+              "SkillTitle": "AWS Certification",
+              "SkillType": "Certification",
+              "Institution": "Amazon",
+              "DateAcquired": "11/11/11",
+              "Renewal": "Current",
+              "ComfortLevel": "Advanced"
+          },
+          {
+              "SkillId": 3,
+              "SkillTitle": "Fiori 1 Certification",
+              "SkillType": "Certification",
+              "Institution": "SAP",
+              "DateAcquired": "12/12/12",
+              "Renewal": "Expired",
+              "ComfortLevel": "Beginner"
+          }
         ],
         "Awards": [
           {
@@ -101,24 +101,24 @@
         "StartDate": "Jan 1, 2016",
         "Email": "markanderson@mindsetconsulting.com",
         "AssignedSkills": [
-            {
-                "Id": 4,
-                "SkillTitle": "Diversity and Equity Training",
-                "SkillType": "Certification",
-                "Institution": "DET Experts",
-                "DateAcquired": "3/3/13",
-                "Renewal": "Current",
-                "ComfortLevel": "Advanced"
-            },
-            {
-                "Id": 5,
-                "SkillTitle": "Introduction to Meditation",
-                "SkillType": "Course",
-                "Institution": "LinkedIn",
-                "DateAcquired": "4/4/14",
-                "Renewal": "n/a",
-                "ComfortLevel": "Beginner"
-            }
+          {
+              "SkillId": 4,
+              "SkillTitle": "Diversity and Equity Training",
+              "SkillType": "Certification",
+              "Institution": "DET Experts",
+              "DateAcquired": "3/3/13",
+              "Renewal": "Current",
+              "ComfortLevel": "Advanced"
+          },
+          {
+              "SkillId": 5,
+              "SkillTitle": "Introduction to Meditation",
+              "SkillType": "Course",
+              "Institution": "LinkedIn",
+              "DateAcquired": "4/4/14",
+              "Renewal": "n/a",
+              "ComfortLevel": "Beginner"
+          }
         ],
         "Awards": [
           {

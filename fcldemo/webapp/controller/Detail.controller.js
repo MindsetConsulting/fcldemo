@@ -52,6 +52,52 @@ sap.ui.define([
 			this.byId("editEmployeeDialog").close();
 		},
 
+		onOpenAssignSkillDialog: function () {
+			if (!this.assignSkillDialog) {
+				this.assignSkillDialog = this.loadFragment({
+					name: "fcldemo.fcldemo.view.AssignSkillDialog"
+				});
+			} 
+			this.assignSkillDialog.then(function(oDialog) {
+				oDialog.open();
+			});
+		},
+
+		onAssignSkill: function (oEvent) {
+			var oModel = this.getView().getModel("employee");
+
+			// var NewSkillID = this.getView().byId("SkillId").getValue();
+			var NewSkillTitle = this.getView().byId("SkillTitle").getValue();
+			var NewSkillType = this.getView().byId("SkillType").getValue();
+			var NewSkillInstitution = this.getView().byId("Institution").getValue();
+			var NewSkillDateAcquired = this.getView().byId("DateAcquired").getValue();
+			var NewSkillRenewal = this.getView().byId("Renewal").getValue();
+			var NewSkillComfortLevel = this.getView().byId("ComfortLevel").getValue();
+
+			var skillToAssign = {};
+
+			skillToAssign = {
+				// "SkillId": NewSkillID,
+				"SkillTitle": NewSkillTitle,
+				"SkillType": NewSkillType,
+				"Institution": NewSkillInstitution,
+				"DateAcquired": NewSkillDateAcquired,
+				"Renewal": NewSkillRenewal,
+				"ComfortLevel": NewSkillComfortLevel
+			};
+
+			var assignedSkills = this.getView().getBindingContext("employee").getProperty("AssignedSkills");
+			assignedSkills.push(skillToAssign);
+			var employeeAssignedSkillPath = this.getView().getBindingContext("employee").getPath("AssignSkills");
+			this.getView().getModel("employee").setProperty(employeeAssignedSkillPath, assignedSkills);
+
+			this.byId("assignSkillDialog").close();
+		},
+
+		onCancelAssignSkillDialog: function () {
+			this.byId("assignSkillDialog").close();
+		},
+
 		onOpenDeleteDialog: function () {
 			if (!this.deleteDialog) {
 				this.deleteDialog = this.loadFragment({
