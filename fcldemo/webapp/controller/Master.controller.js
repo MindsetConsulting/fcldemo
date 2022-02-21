@@ -32,101 +32,50 @@ sap.ui.define([
 			this.oEmployeesTable.getBinding("items").filter(oTableSearchState, "Application");
 		},
 
-		onAdd: function () {
+		onOpenAddEmployeeDialog: function() {
+			if (!this.addEmployeeDialog) {
+				this.addEmployeeDialog = this.getView().byId("addEmployeeDialog");
+			} 
+			this.addEmployeeDialog.open();
+		},
+
+		onAddNewEmployee: function () {
 			var oModel = this.getView().getModel("employee");
 			var EmployeesNumber = oModel.getProperty("/Employees").length;
-			var NewEmployeeID = EmployeesNumber;
-			var dialog = new sap.m.Dialog({
-				title: "Add Employee",
-				type: "Message",
-				content: [new sap.ui.layout.HorizontalLayout({
-					content: [new sap.ui.layout.VerticalLayout({
-						width: "150px",
-						content: [
-							new sap.m.Label({
-								text: "Id"
-							}),
-							new sap.m.Input("Id", {
-								value: NewEmployeeID,
-								editable: false
-							}),
-							new sap.m.Label({
-								text: "Full Name"
-							}),
-							new sap.m.Input("FullName"),
-							new sap.m.Label({
-								text: "Department"
-							}),
-							new sap.m.Input("Department"),
-							new sap.m.Label({
-								text: "Title"
-							}),
-							new sap.m.Input("Title"),
-							new sap.m.Label({
-								text: "Role"
-							}),
-							new sap.m.Input("Role"),
-							new sap.m.Label({
-								text: "Industries"
-							}),
-							new sap.m.Input("Industries"),
-							new sap.m.Label({
-								text: "Direct Report"
-							}),
-							new sap.m.Input("DirectReport"),
-							new sap.m.Label({
-								text: "Start Date"
-							}),
-							new sap.m.Input("StartDate"),
-							new sap.m.Label({
-								text: "Email"
-							}),
-							new sap.m.Input("Email")
-						]
-					})]
-				})],
-				beginButton: new sap.m.Button({
-					text: "Save",
-					type: "Emphasized",
-					press: function() {
-						var NewEmployeeID = sap.ui.getCore().byId("Id").getValue();
-						var NewEmployeeFullName = sap.ui.getCore().byId("FullName").getValue();
-						var NewEmployeeDepartment = sap.ui.getCore().byId("Department").getValue();
-						var NewEmployeeTitle = sap.ui.getCore().byId("Title").getValue();
-						var NewEmployeeRole = sap.ui.getCore().byId("Role").getValue();
-						var NewEmployeeIndustries = sap.ui.getCore().byId("Industries").getValue();
-						var NewEmployeeDirectReport = sap.ui.getCore().byId("DirectReport").getValue();
-						var NewEmployeeStartDate = sap.ui.getCore().byId("StartDate").getValue();
-						var NewEmployeeEmail = sap.ui.getCore().byId("Email").getValue();
-						var oEmployee = {};
-						oEmployee = {
-							"Id": NewEmployeeID,
-							"FullName": NewEmployeeFullName,
-							"Department": NewEmployeeDepartment,
-							"Title": NewEmployeeTitle,
-							"Role": NewEmployeeRole,
-							"Industries": NewEmployeeIndustries,
-							"DirectReport": NewEmployeeDirectReport,
-							"StartDate": NewEmployeeStartDate,
-							"Email": NewEmployeeEmail
-						};
-						var oEmployees = oModel.getProperty("/Employees");
-						oEmployees.push(oEmployee);
-						oModel.setProperty("/Employees", oEmployees);
-						dialog.close();
-					}
-				}),
-				endButton: new sap.m.Button({
-					text: "Cancel",
-					press: function() {
-						dialog.close();
-					}
-				}),
-				afterClose: function() {
-					dialog.destroy();
-				}
-			});
-			dialog.open();
+			var newEmployeeId = EmployeesNumber;
+			var newEmployeeFullName = this.getView().byId("FullName").getValue();
+			var newEmployeeDepartment = this.getView().byId("Department").getValue();
+			var newEmployeeTitle = this.getView().byId("Title").getValue();
+			var newEmployeeRole = this.getView().byId("Role").getValue();
+			var newEmployeeIndustries = this.getView().byId("Industries").getValue();
+			var newEmployeeDirectReport = this.getView().byId("DirectReport").getValue();
+			var newEmployeeStartDate = this.getView().byId("StartDate").getValue();
+			var newEmployeeEmail = this.getView().byId("Email").getValue();
+
+			var employeeToAdd = {};
+
+			employeeToAdd = {
+				"Id": newEmployeeId,
+				"FullName": newEmployeeFullName,
+				"Department": newEmployeeDepartment,
+				"Title": newEmployeeTitle,
+				"Role": newEmployeeRole,
+				"Industries": newEmployeeIndustries,
+				"DirectReport": newEmployeeDirectReport,
+				"StartDate": newEmployeeStartDate,
+				"Email": newEmployeeEmail,
+				"AssignedSkills": []
+			};
+
+			var employeeList = oModel.getProperty("/Employees");
+			employeeList.push(employeeToAdd);
+			oModel.setProperty("/Employees", employeeList);
+
+			this.byId("addEmployeeDialog").close();
+		},
+
+		onCancelAddEmployeeDialog: function () {
+			this.byId("addEmployeeDialog").close();
 		},
 
 		onSort: function () {

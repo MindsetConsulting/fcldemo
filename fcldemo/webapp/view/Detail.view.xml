@@ -4,7 +4,8 @@
 	xmlns:m="sap.m"
 	xmlns:f="sap.f"
 	xmlns:form="sap.ui.layout.form"
-	xmlns:mvc="sap.ui.core.mvc">
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
     <ObjectPageLayout
 		id="ObjectPageLayout"
 		showTitleInHeaderContent="true"
@@ -123,7 +124,7 @@
 				</subSections>
 			</ObjectPageSection>
 
-			<!-- <ObjectPageSection title="Awards">
+			<ObjectPageSection title="Awards">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
@@ -162,7 +163,7 @@
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>
-			</ObjectPageSection> -->
+			</ObjectPageSection>
 		</sections>
 
         <footer>
@@ -172,5 +173,10 @@
 				<m:Button type="Reject" text="Cancel" press="onEditButtonPress"/>
 			</m:OverflowToolbar>
 		</footer>
+		<dependents>
+			<core:Fragment fragmentName="fcldemo.fcldemo.view.EditEmployeeDialog" type="XML" />
+			<core:Fragment fragmentName="fcldemo.fcldemo.view.AssignSkillDialog" type="XML" />
+			<core:Fragment fragmentName="fcldemo.fcldemo.view.DeleteDialog" type="XML" />
+		</dependents>
 	</ObjectPageLayout>
 </mvc:View>

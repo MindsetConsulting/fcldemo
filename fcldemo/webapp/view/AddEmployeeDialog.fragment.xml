@@ -4,8 +4,8 @@
    xmlns:form="sap.ui.layout.form"
    xmlns:core="sap.ui.core" >
    <Dialog
-      id="assignSkillDialog"
-      title="Assign Skill">
+      id="addEmployeeDialog"
+      title="Add New Employee">
       <layout:HorizontalLayout>
         <layout:VerticalLayout>
             <form:SimpleForm
@@ -19,32 +19,36 @@
                 columnsL="1"
                 columnsM="1">
                 <form:content>
+                    <Label text="Name"/>
+                    <Input id="FullName"/>
+                    <Label text="Department"/>
+                    <Input id="Department"/>
                     <Label text="Title"/>
-                    <Input id="SkillTitle"/>
-                    <Label text="Type of Skill"/>
-                    <Input id="SkillType"/>
-                    <Label text="Institution"/>
-                    <Input id="Institution"/>
-                    <Label text="Date Acquired"/>
-                    <Input id="DateAcquired"/>
-                    <Label text="Renewal Status"/>
-                    <Input id="Renewal"/>
-                    <Label text="Comfort Level"/>
-                    <Input id="ComfortLevel"/>
+                    <Input id="Title"/>
+                    <Label text="Role"/>
+                    <Input id="Role"/>
+                    <Label text="Industries"/>
+                    <Input id="Industries"/>
+                    <Label text="Direct Report"/>
+                    <Input id="DirectReport"/>
+                    <Label text="Start Date"/>
+                    <Input id="StartDate"/>
+                    <Label text="Email"/>
+                    <Input id="Email"/>
                 </form:content>
             </form:SimpleForm>
         </layout:VerticalLayout>
       </layout:HorizontalLayout>
       <beginButton>
         <Button
-            text="Ok"
+            text="Add Employee"
             type="Emphasized"
-            press="onAssignSkill"/>
+            press="onAddNewEmployee"/>
       </beginButton>
       <endButton>
-        <Button
+        <Button 
             text="Cancel"
-            press="onCancelAssignSkillDialog"/>
+            press="onCancelAddEmployeeDialog"/>
       </endButton>
    </Dialog>
 </core:FragmentDefinition>

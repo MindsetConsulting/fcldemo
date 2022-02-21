@@ -33,13 +33,9 @@ sap.ui.define([
 
 		onOpenEditSkillDialog: function () {
 			if (!this.editDialog) {
-				this.editDialog = this.loadFragment({
-					name: "fcldemo.fcldemo.view.EditSkillDialog"
-				});
+				this.editDialog = this.getView().byId("editSkillDialog")
 			} 
-			this.editDialog.then(function(oDialog) {
-				oDialog.open();
-			});
+			this.editDialog.open();
 		},
 
 		onSaveEditSkill: function () {
@@ -47,18 +43,10 @@ sap.ui.define([
 		},
 
 		onOpenDeleteDialog: function () {
-			if (!this.pDialog) {
-				this.pDialog = this.loadFragment({
-					name: "fcldemo.fcldemo.view.DeleteDialog"
-				});
+			if (!this.deleteDialog) {
+				this.deleteDialog = this.getView().byId("deleteDialog")
 			} 
-			this.pDialog.then(function(oDialog) {
-				oDialog.open();
-			});
-		},
-
-		onCloseDeleteDialog : function () {
-			this.byId("deleteDialog").close();
+			this.deleteDialog.open();
 		},
 
 		onDelete: function (oEvent) {
@@ -78,6 +66,10 @@ sap.ui.define([
 			// // Update the Model 
 			oModel.setProperty("/Employees/" + this._employee + "/AssignedSkills", oAssignedSkill);
 
+			this.byId("deleteDialog").close();
+		},
+
+		onCloseDeleteDialog : function () {
 			this.byId("deleteDialog").close();
 		},
 

@@ -3,7 +3,8 @@
 	xmlns="sap.f"
 	xmlns:m="sap.m"
     xmlns:form="sap.ui.layout.form"
-	xmlns:mvc="sap.ui.core.mvc">
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
 	<DynamicPage toggleHeaderOnTitleClick="false">
 		<title>
 			<DynamicPageTitle>
@@ -55,5 +56,9 @@
                 </content>
             </DynamicPageHeader>
         </header>
+		<dependents>
+			<core:Fragment fragmentName="fcldemo.fcldemo.view.EditSkillDialog" type="XML" />
+			<core:Fragment fragmentName="fcldemo.fcldemo.view.DeleteDialog" type="XML" />
+		</dependents>
 	</DynamicPage>
 </mvc:View>
